@@ -25,8 +25,7 @@ Sigue estos pasos para configurar el proyecto en tu entorno local:
    ```
 
 2. **Colocate en la raiz del proyecto para crear y ejecutar las migraciones**:
-    ```bash
-     python manage.py makemigrations  
+    ```bash 
      python manage.py migrate         
     ```
 
