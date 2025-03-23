@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/crear/cita/" method="POST">
+{% csrf_token %}
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endif %}
+    <div class="form-group">
+      <label for="fechaHora">Fecha y hora</label>
+      <input type="datetime-local" class="form-control {% if error %}is-invalid{% endif %}" name="fecha_hora" id="fecha_hora" value="{{ fecha_hora }}" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Paciente</label>
+      <input type="text" class="form-control" name="paciente" id="paciente" aria-describedby="emailHelp" placeholder="Nombre del paciente" value="{{paciente}}" required>
+    </div>
+    <div class="form-group">
+      <label for="minutos">Minutos</label>
+      <input type="number" class="form-control" name="tiempo" id="tiempo" min="0" max="60" step="1" placeholder="Ingrese los minutos" value="{{tiempo}}" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nombre del medico</label>
+      <input type="text" class="form-control" name="medico" id="medico" aria-describedby="emailHelp" placeholder="Nombre del médico con quien asiste" value="{{medico}}" required>
+    </div>
+    <div class="form-group">
+      <label for="numeroCita">Número de cita</label>
+      <input type="number" class="form-control" name="numero_cita" id="numero_cita" placeholder="Ingrese el número de cita" value="{{numero_cita}}" required>
+    </div>
+    <button type="submit" class="btn rounded-pill btn-purple mt-2">Crear</button>
+  </form>
+{% endblock %}

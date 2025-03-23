@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{error}}
+  <table class="table table-striped text-center table-purple">
+    <thead class="table-dark">
+      <tr>
+        <th colspan="6" class="text-center text-white table-purple">Listado de Citas canceladas</th>
+      </tr>
+      <tr>
+        <th scope="col">Fecha y hora</th>
+        <th scope="col">Paciente</th>
+        <th scope="col">Tiempo</th>
+        <th scope="col">Medico</th>
+        <th scope="col">Cita</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cita in citas %}
+        <tr>
+            <th>{{cita.fecha_hora}}</th>
+            <td>{{cita.paciente}}</td>
+            <td>{{cita.tiempo}}</td>
+            <td>{{cita.medico}}</td>
+            <td>{{cita.cita}}</td>
+            <td>
+                <a href="{% url 'cita' cita.id  %}"><i class="bi bi-info-square"></i></a>
+                <a href="#" onclick="confirmarActivacion({{ cita.id }})"><i class="bi bi-toggle-off"></i></a>
+            </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
