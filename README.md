@@ -5,7 +5,7 @@ Crud para Reina madre
 ## Características
 
 - Principales funciones de un crud (agregar,editar,actualizar,eliminar)
-- Sistema de autentificacion usuarios
+- Sistema de autentificacion de usuarios
 - Validaciones y alertas
 
 ## Requisitos
